@@ -1,0 +1,15 @@
+---
+- name: simplest ansible playbook for demostration
+  hosts: all
+  vars:
+    file_name: /tmp/ansible_created_file
+  tasks: 
+  - name: create a file in /tmp directoy 
+    file:
+      path: "{{file_name}}"
+      state: touch
+    
+  - name: Add content to newly created file
+    copy:
+      dest: "{{file_name}}"
+      content: "this file is created by ansible playbook"
